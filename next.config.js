@@ -4,8 +4,12 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['media.graphassets.com'],
+    domains: [
+      "media.graphassets.com",
+      "www.github.com",
+      "avatars.githubusercontent.com",
+    ],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
