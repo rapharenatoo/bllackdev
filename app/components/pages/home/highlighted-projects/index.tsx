@@ -10,7 +10,7 @@ export const HighlightedProjects = () => {
       <SectionTitle subtitle='destaques' title='Projetos em destaque' />
       <HorizontalDivider className='mb-16' />
 
-      {Array.from({ length: 3 }).map((_, index) => (
+      {Array.from({ length: 1 }).map((_, index) => (
         <div>
           <ProjectCard
             key={index}
