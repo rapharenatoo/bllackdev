@@ -1,20 +1,14 @@
+import { ProjectSection } from "@/app/types/projects";
 import Image from "next/image";
 
-const sections = [
-  {
-    title: "Login",
-    image: "/images/hero-bg.png",
-  },
-  {
-    title: "Home",
-    image: "/images/hero-bg.png",
-  },
-];
+type ProjectSectionProps = {
+  sections: ProjectSection[];
+}
 
-export const ProjectSections = () => {
+export const ProjectSections = ({sections}: ProjectSectionProps) => {
   return (
     <section className='container my-12 md:my-32 flex flex-col gap-8 md:gap-32'>
-      {sections.map((section, index) => (
+      {sections.map((section) => (
         <div
           key={section.title}
           className='flex flex-col items-center gap-6 md:gap-12'
@@ -23,7 +17,7 @@ export const ProjectSections = () => {
             {section.title}
           </h2>
           <Image
-            src={section.image}
+            src={section.image.url}
             alt={`Imagem da sessão ${section.title}`}
             width={1080}
             height={672}

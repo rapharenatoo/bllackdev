@@ -8,7 +8,6 @@ export const BackToTop = () => {
   const [show, setShow] = useState(false);
 
   const scrollToTop = () => {
-    console.log(">>> scrollToTop: ", window);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -19,7 +18,6 @@ export const BackToTop = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    console.log(">>> scrollToTop: ", window);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
