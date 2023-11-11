@@ -2,7 +2,7 @@ import { Link } from "@/app/components/link";
 import { TechBadge } from "@/app/components/tech-badge";
 import { Project } from "@/app/types/projects";
 import Image from "next/image";
-import { HiArrowNarrowRight } from "react-icons/hi";
+import { HiArrowNarrowRight, HiDesktopComputer } from "react-icons/hi";
 
 type ProjectCardProps = {
   project: Project;
@@ -21,14 +21,9 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
         />
       </div>
 
-      <div className="flex-1 lg:py-[18px]">
+      <div className='flex-1 lg:py-[18px]'>
         <h3 className='flex items-center gap-3 font-medium text-lg text-gray-50'>
-          <Image
-            width={20}
-            height={20}
-            alt='Ícone do projeto'
-            src='/images/icons/project-title-icon.svg'
-          />
+          <HiDesktopComputer color="##8b5cf6" size={24}/>
           {project.title}
         </h3>
         <p className='text-gray-400 my-6'>{project.shortDescription}</p>

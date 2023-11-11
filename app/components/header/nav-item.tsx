@@ -20,7 +20,7 @@ export const NavItem = ({ href, label }: NavItemProps) => {
         isActive && "text-gray-50"
       )}
     >
-      <span className='text-emerald-400'>#</span>
+      <span className='text-violet-400'>#</span>
       {label}
     </Link>
   );
