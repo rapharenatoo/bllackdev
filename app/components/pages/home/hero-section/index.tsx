@@ -51,7 +51,7 @@ export const HeroSection = ({ homeInfo }: HomeSectionProps) => {
           </div>
 
           <div className='mt-6 lg:mt-10 flex sm:items-center sm:gap-5 flex-col sm:flex-row'>
-            <Button className='w-max shadow-button' onClick={handleContact}>
+            <Button className='w-max shadow-lg shadow-violet-400/40' onClick={handleContact}>
               Entre em contato
               <HiArrowNarrowRight size={18} />
             </Button>

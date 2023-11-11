@@ -78,7 +78,7 @@ export const ContactForm = () => {
           />
 
           <Button
-            className='w-max mx-auto mt-6 shadow-button'
+            className='w-max mx-auto mt-6 shadow-lg shadow-violet-400/40'
             disabled={isSubmitting}
           >
             Enviar mensagem
