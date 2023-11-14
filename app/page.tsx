@@ -1,6 +1,7 @@
 import { HeroSection } from "./components/pages/home/hero-section";
 import { HighlightedProjects } from "./components/pages/home/highlighted-projects";
 import { KnownTechs } from "./components/pages/home/known-techs";
+import { ServicesSection } from "./components/pages/home/services-section";
 import { WorkExperience } from "./components/pages/home/work-experience";
 import { HomePageData } from "./types/page-info";
 import { fetchHygraphQuery } from "./utils/fetch-hygraph-query";
@@ -40,6 +41,11 @@ const getPageData = async (): Promise<HomePageData> => {
           name
         }
       }
+      services {
+        iconSvg
+        title
+        description
+      }
     }
     workExperiences {
       companyLogo {
@@ -70,8 +76,9 @@ export default async function Home() {
   return (
     <>
       <HeroSection homeInfo={pageData} />
-      <KnownTechs techs={pageData.knownTechs} />
+      <ServicesSection services={pageData.services} />
       <HighlightedProjects projects={pageData.highlightProjects} />
+      <KnownTechs techs={pageData.knownTechs} />
       <WorkExperience experiences={workExperiences} />
     </>
   );

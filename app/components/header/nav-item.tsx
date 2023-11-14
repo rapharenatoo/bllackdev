@@ -1,6 +1,7 @@
 import { cn } from "@/app/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { TbCode } from "react-icons/tb";
 
 type NavItemProps = {
   href: string;
@@ -20,7 +21,7 @@ export const NavItem = ({ href, label }: NavItemProps) => {
         isActive && "text-gray-50"
       )}
     >
-      <span className='text-violet-400'>#</span>
+      <TbCode className='text-violet-400' size={18} />
       {label}
     </Link>
   );

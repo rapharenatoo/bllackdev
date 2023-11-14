@@ -5,8 +5,7 @@ import { CMSIcon } from "@/app/components/cms-icon";
 import { RichText } from "@/app/components/rich-text";
 import { TechBadge } from "@/app/components/tech-badge";
 import { HomePageInfo } from "@/app/types/page-info";
-import Image from "next/image";
-import { HiArrowNarrowRight } from "react-icons/hi";
+import { TbCode } from "react-icons/tb";
 import { motion } from "framer-motion";
 import { techBadgeAnimation } from "@/app/lib/animations";
 
@@ -23,23 +22,25 @@ export const HeroSection = ({ homeInfo }: HomeSectionProps) => {
   };
 
   return (
-    <section className='w-full lg:h-[755px] bg-hero-image bg-cover bg-center bg-no-repeat flex flex-col justify-end pb-10 sm:pb-32 py-32 lg:pb-[110px]'>
-      <div className='container flex items-start justify-between flex-col-reverse lg:flex-row'>
+    <section className='w-full lg:h-[855px] bg-hero-image bg-cover bg-center bg-no-repeat flex flex-col justify-end pb-10 sm:pb-32 py-32 lg:pb-[110px]'>
+      <div className='container flex items-center justify-center '>
         <motion.div
-          className='w-full lg:max-w-[530px]'
+          className='w-full lg:max-w-[730px] flex flex-col justify-center items-center'
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.5 }}
         >
-          <p className='font-mono text-violet-400'>Olá, meu nome é</p>
-          <h2 className='text-4xl font-medium mt-2'>Raphael Renato</h2>
+          <h2 className='text-5xl font-medium'>Bllackdev</h2>
+          <p className='font-mono text-violet-400 mt-2 lg:text-xl text-center'>
+            Desenvolvimento de Sites e Aplicativos
+          </p>
 
-          <div className='text-gray-400 my-6 text-sm sm:text-base'>
+          <div className='text-gray-400 my-8 text-sm text-center sm:text-base'>
             <RichText content={homeInfo.introduction.raw} />
           </div>
 
-          <div className='flex flex-wrap gap-x-2 gap-y-3 lg:max-w-[340px]'>
+          <div className='flex flex-wrap gap-x-2 gap-y-3 lg:max-w-[540px] justify-center'>
             {homeInfo.technologies.map((tech, i) => (
               <TechBadge
                 key={`intro-tech-${tech.name}`}
@@ -50,10 +51,14 @@ export const HeroSection = ({ homeInfo }: HomeSectionProps) => {
             ))}
           </div>
 
-          <div className='mt-6 lg:mt-10 flex sm:items-center sm:gap-5 flex-col sm:flex-row'>
-            <Button className='w-max shadow-lg shadow-violet-400/40' onClick={handleContact}>
+          <div className='flex flex-col justify-center items-center mt-6 lg:mt-10 sm:items-center sm:gap-5'>
+            <Button
+              className='w-max shadow-lg shadow-violet-400/40'
+              onClick={handleContact}
+            >
+              <TbCode className='text-gray-50' size={18} />
               Entre em contato
-              <HiArrowNarrowRight size={18} />
+              <TbCode className='text-gray-50' size={18} />
             </Button>
 
             <div className='text-2xl text-gray-600 flex items-center h-20 gap-3'>
@@ -61,29 +66,13 @@ export const HeroSection = ({ homeInfo }: HomeSectionProps) => {
                 <a
                   href={social.url}
                   target='_blank'
-                  className='hover: text-gray-100 transition-colors'
+                  className='hover:text-violet-500 transition-colors'
                 >
                   <CMSIcon icon={social.iconSvg} />
                 </a>
               ))}
             </div>
           </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 200, scale: 0.5 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 200, scale: 0.5 }}
-          transition={{ duration: 0.5 }}
-          className="origin-center"
-        >
-          <Image
-            width={420}
-            height={404}
-            src={homeInfo.profilePicture.url}
-            alt='Foto de perfil do Raphael Renato'
-            className='w-[300px] h-[300px] lg:w-[420px] lg:h-[404px] mb-6 lg:mb-0 shadow-2xl rounded-lg object-cover'
-          />
         </motion.div>
       </div>
     </section>

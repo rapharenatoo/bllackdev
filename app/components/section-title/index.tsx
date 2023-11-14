@@ -2,16 +2,17 @@
 
 import { cn } from "@/app/lib/utils";
 import { motion } from "framer-motion";
+import { TbCode } from "react-icons/tb";
 
 type SectionTitlePros = {
   title: string;
-  subtitle?: string;
+  visibleIcon?: boolean;
   className?: string;
 };
 
 export const SectionTitle = ({
   title,
-  subtitle,
+  visibleIcon = true,
   className,
 }: SectionTitlePros) => {
   const animProps = {
@@ -22,11 +23,12 @@ export const SectionTitle = ({
 
   return (
     <div className={cn("flex flex-col gap-4", className)}>
-      <motion.span
-        className='font-mono text-sm text-violet-400'
-        {...animProps} transition={{ duration: 0.5 }}
-      >{`../${subtitle}`}</motion.span>
-      <motion.h3 className='text-3xl font-medium' {...animProps} transition={{ duration: 0.2 }}>
+      <motion.h3
+        className='flex items-center gap-3 text-3xl font-medium'
+        {...animProps}
+        transition={{ duration: 0.5 }}
+      >
+        {visibleIcon && <TbCode className='text-violet-400' size={30} />}
         {title}
       </motion.h3>
     </div>

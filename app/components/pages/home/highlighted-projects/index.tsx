@@ -12,24 +12,22 @@ type HighlightedProjectsProps = {
 export const HighlightedProjects = ({ projects }: HighlightedProjectsProps) => {
   return (
     <section className='container py-16'>
-      <SectionTitle subtitle='destaques' title='Projetos em destaque' />
+      <SectionTitle title='Projetos realizados' />
       <HorizontalDivider className='mb-16' />
 
-      {projects.map((project) => (
-        <div>
-          <ProjectCard
-            key={project.slug}
-            project={project}
-          />
-          <HorizontalDivider className='my-16' />
-        </div>
-      ))}
+      <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+        {projects.map((project, i) => (
+          <div>
+            <ProjectCard key={project.slug} index={i} project={project} />
+          </div>
+        ))}
+      </div>
 
-      <p className='flex items-center gap-1.5'>
+      <p className='flex justify-center items-center gap-1.5 w-full mt-6'>
         <span className='text-gray-400'>Se interessou?</span>
-        <Link href='/projects' className='inline-flex'>
+        <Link href='/projects' className='inline-flex text'>
           Ver todos
-          <HiArrowNarrowRight />
+          <HiArrowNarrowRight size={16}/>
         </Link>
       </p>
     </section>

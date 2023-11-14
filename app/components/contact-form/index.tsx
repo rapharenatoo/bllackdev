@@ -1,6 +1,6 @@
 "use client";
 
-import { HiArrowNarrowRight } from "react-icons/hi";
+import { TbCode } from "react-icons/tb";
 import { Button } from "../button";
 import { SectionTitle } from "../section-title";
 import { useForm } from "react-hook-form";
@@ -10,6 +10,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import { fadeUpAnimation } from "@/app/lib/animations";
+import { Social } from "@/app/types/page-info";
+import { CMSIcon } from "../cms-icon";
 
 const contactFormSchema = z.object({
   name: z.string().min(3).max(100),
@@ -19,7 +21,11 @@ const contactFormSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
-export const ContactForm = () => {
+type ContactSectionProps = {
+  contactInfo: Social[];
+};
+
+export const ContactForm = ({ contactInfo }: ContactSectionProps) => {
   const {
     handleSubmit,
     register,
@@ -48,8 +54,8 @@ export const ContactForm = () => {
     >
       <div className='w-full max-w-[420px] mx-auto'>
         <SectionTitle
-          subtitle='contato'
           title='Vamos trabalhar juntos? Entre em contato'
+          visibleIcon={false}
           className='items-center text-center'
         />
 
@@ -77,13 +83,27 @@ export const ContactForm = () => {
             {...register("message")}
           />
 
-          <Button
-            className='w-max mx-auto mt-6 shadow-lg shadow-violet-400/40'
-            disabled={isSubmitting}
-          >
-            Enviar mensagem
-            <HiArrowNarrowRight size={18} />
-          </Button>
+          <div className='flex flex-col justify-center items-center mt-6 lg:mt-10 sm:items-center sm:gap-2'>
+            <Button
+              className='w-max mx-auto shadow-lg shadow-violet-400/40'
+              disabled={isSubmitting}
+            >
+              <TbCode className='text-gray-50' size={18} />
+              Enviar mensagem
+              <TbCode className='text-gray-50' size={18} />
+            </Button>
+            <div className='text-2xl text-gray-600 flex items-center h-20 gap-3'>
+              {contactInfo.map((social) => (
+                <a
+                  href={social.url}
+                  target='_blank'
+                  className='hover:text-violet-500 transition-colors'
+                >
+                  <CMSIcon icon={social.iconSvg} />
+                </a>
+              ))}
+            </div>
+          </div>
         </motion.form>
       </div>
     </section>

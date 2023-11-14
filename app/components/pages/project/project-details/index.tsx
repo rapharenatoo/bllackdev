@@ -3,7 +3,6 @@
 import { Button } from "@/app/components/button";
 import { SectionTitle } from "@/app/components/section-title";
 import { TechBadge } from "@/app/components/tech-badge";
-import { TbBrandGithub } from "react-icons/tb";
 import { FiGlobe } from "react-icons/fi";
 import { Link } from "@/app/components/link";
 import { HiArrowNarrowLeft } from "react-icons/hi";
@@ -30,7 +29,6 @@ export const ProjectDetails = ({ project }: ProjectDetailsProps) => {
       />
 
       <SectionTitle
-        subtitle='projetos'
         title={project.title}
         className='text-center items-center sm:[&>h3]:text-4xl'
       />
@@ -54,12 +52,12 @@ export const ProjectDetails = ({ project }: ProjectDetailsProps) => {
         className='my-6 sm:my-12 flex items-center gap-2 sm:gap-4 flex-col sm:flex-row'
         {...fadeUpAnimation}
       >
-        <a href={project.githubUrl} target='_blank'>
+        {/* <a href={project.githubUrl} target='_blank'>
           <Button className='min-w-[180px] shadow-lg shadow-violet-400/40'>
             <TbBrandGithub size={20} />
             Repositório
           </Button>
-        </a>
+        </a> */}
         <a href={project.liveProjectUrl} target='_blank'>
           <Button className='min-w-[180px] shadow-lg shadow-violet-400/40'>
             <FiGlobe size={20} />

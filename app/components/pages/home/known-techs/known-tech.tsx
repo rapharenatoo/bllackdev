@@ -14,7 +14,7 @@ export const KnownTech = ({ tech }: KnownTechProps) => {
   ).replace("há", "");
 
   return (
-    <div className='p-6 rounded-lg bg-gray-600/20 text-gray-500 flex flex-col gap-2 hover:text-violet-500 hover:bg-gray-600/30 transition-all'>
+    <div className='p-6 rounded-lg bg-violet-900/10  text-gray-500 flex flex-col gap-2 hover:text-violet-500 hover:bg-violet-600/20 transition-all'>
       <div className='flex items-center justify-between'>
         <p className='font-medium'>{tech.name}</p>
         <CMSIcon icon={tech.iconSvg} />

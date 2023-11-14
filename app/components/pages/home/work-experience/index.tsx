@@ -10,15 +10,13 @@ export const WorkExperience = ({ experiences }: WorkExperienceProps) => {
   return (
     <section className='container py-16 flex gap-10 md:gap-4 lg:gap-16 flex-col md:flex-row'>
       <div className='max-w-[420px]'>
-        <SectionTitle
-          subtitle='experiências'
-          title='Experiência Profissional'
-        />
+        <SectionTitle title='Experiência' />
         <p className='text-gray-400 mt-6'>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-          molestias amet nisi expedita tempora voluptatum illo officia maiores
-          neque corrupti magnam recusandae, officiis provident doloremque ut rem
-          itaque debitis quos.
+          Estou constantemente em busca de novos desafios e projetos
+          empolgantes. Estou pronto para unir forças e colaborar com você na
+          criação de soluções excepcionais para impulsionar o sucesso de sua
+          empresa. Vamos trabalhar juntos para transformar ideias em realidade e
+          alcançar resultados surpreendentes!
         </p>
       </div>
 

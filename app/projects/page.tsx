@@ -14,11 +14,11 @@ const getPageData = async (): Promise<ProjectsPageData> => {
       shortDescription
       slug
       title
-      thumbnail {
-        url
-      }
       technologies {
         name
+      }
+      thumbnail {
+        url
       }
     }
   }
