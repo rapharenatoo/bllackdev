@@ -96,6 +96,7 @@ export const ContactForm = ({ contactInfo }: ContactSectionProps) => {
               {contactInfo.map((social) => (
                 <a
                   href={social.url}
+                  key={social.url}
                   target='_blank'
                   className='hover:text-violet-500 transition-colors'
                 >

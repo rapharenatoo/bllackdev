@@ -17,8 +17,8 @@ export const HighlightedProjects = ({ projects }: HighlightedProjectsProps) => {
 
       <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'>
         {projects.map((project, i) => (
-          <div>
-            <ProjectCard key={project.slug} index={i} project={project} />
+          <div key={project.slug} >
+            <ProjectCard index={i} project={project} />
           </div>
         ))}
       </div>
@@ -27,7 +27,7 @@ export const HighlightedProjects = ({ projects }: HighlightedProjectsProps) => {
         <span className='text-gray-400'>Se interessou?</span>
         <Link href='/projects' className='inline-flex text'>
           Ver todos
-          <HiArrowNarrowRight size={16}/>
+          <HiArrowNarrowRight size={16} />
         </Link>
       </p>
     </section>

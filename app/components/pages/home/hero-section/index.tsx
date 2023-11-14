@@ -65,6 +65,7 @@ export const HeroSection = ({ homeInfo }: HomeSectionProps) => {
               {homeInfo.socials.map((social) => (
                 <a
                   href={social.url}
+                  key={social.url}
                   target='_blank'
                   className='hover:text-violet-500 transition-colors'
                 >
