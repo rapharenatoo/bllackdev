@@ -34,9 +34,9 @@ export default async function Projects() {
   const { projects } = await getPageData();
 
   return (
-    <div>
+    <>
       <PageIntroduction />
       <ProjectsList projects={projects} />
-    </div>
+    </>
   );
 }
