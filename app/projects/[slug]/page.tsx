@@ -37,6 +37,8 @@ const getProjectDetails = async (slug: string): Promise<ProjectPageData> => {
       }
       liveProjectUrl
       githubUrl
+      inProgress
+      githubVisible
     }
   }
   `;

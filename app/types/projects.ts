@@ -31,4 +31,6 @@ export type Project = {
   };
   liveProjectUrl?: string;
   githubUrl?: string;
+  inProgress?: boolean;
+  githubVisible?: boolean;
 };

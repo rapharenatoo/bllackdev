@@ -6,10 +6,12 @@ import { TechBadge } from "@/app/components/tech-badge";
 import { FiGlobe } from "react-icons/fi";
 import { Link } from "@/app/components/link";
 import { HiArrowNarrowLeft } from "react-icons/hi";
+import { RiAlarmWarningLine } from "react-icons/ri";
 import { Project } from "@/app/types/projects";
 import { RichText } from "@/app/components/rich-text";
 import { motion } from "framer-motion";
 import { fadeUpAnimation, techBadgeAnimation } from "@/app/lib/animations";
+import { TbBrandGithub } from "react-icons/tb";
 
 export type ProjectDetailsProps = {
   project: Project;
@@ -33,7 +35,7 @@ export const ProjectDetails = ({ project }: ProjectDetailsProps) => {
         className='text-center items-center sm:[&>h3]:text-4xl'
       />
       <motion.div
-        className='text-gray-400 text-center max-w-[640px] my-4 sm:my-6 text-sm sm:text-base'
+        className='text-gray-400 text-center max-w-[840px] my-4 sm:my-6 text-sm sm:text-base'
         {...fadeUpAnimation}
       >
         <RichText content={project.description.raw} />
@@ -52,19 +54,33 @@ export const ProjectDetails = ({ project }: ProjectDetailsProps) => {
         className='my-6 sm:my-12 flex items-center gap-2 sm:gap-4 flex-col sm:flex-row'
         {...fadeUpAnimation}
       >
-        {/* <a href={project.githubUrl} target='_blank'>
-          <Button className='min-w-[180px] shadow-lg shadow-violet-400/40'>
-            <TbBrandGithub size={20} />
-            Repositório
-          </Button>
-        </a> */}
+        {project.githubVisible && (
+          <a href={project.githubUrl} target='_blank'>
+            <Button className='min-w-[180px] justify-center shadow-lg shadow-violet-400/40'>
+              <TbBrandGithub size={20} />
+              Repositório
+            </Button>
+          </a>
+        )}
         <a href={project.liveProjectUrl} target='_blank'>
-          <Button className='min-w-[180px] shadow-lg shadow-violet-400/40'>
+          <Button
+            className='min-w-[180px] justify-center shadow-lg shadow-violet-400/40'
+            disabled={project.inProgress}
+          >
             <FiGlobe size={20} />
             Projeto Online
           </Button>
         </a>
       </motion.div>
+      {project.inProgress && (
+        <div className='flex gap-3 justify-center items-center mb-8'>
+          <RiAlarmWarningLine size={26} className='text-red-600' />
+          <h3 className='text-gray-400 font-bold text-md'>
+            Estamos trabalhando nesse projeto. Em breve links disponíveis.
+          </h3>
+          <RiAlarmWarningLine size={26} className='text-red-600' />
+        </div>
+      )}
       <Link href='/projects'>
         <HiArrowNarrowLeft size={20} />
         Voltar para projetos
